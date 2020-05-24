@@ -14,7 +14,7 @@ module.exports = class Format {
     return Format.pad(bytes.toFixed(1) + ' ' + units[u], 8, ' ', true);
   }
 
-  pad(string, length, padding = ' ', left = false) {
+  static pad(string, length, padding = ' ', left = false) {
     string = string && string + '' || '';
     if (string.length > length) return string.substring(0, length);
     const pad = padding.repeat(length - string.length);
