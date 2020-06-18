@@ -1,10 +1,7 @@
 module.exports = class AsyncPromise {
 
   constructor() {
-    this._promise = new Promise((resolve, reject) => {
-      this._resolve = resolve;
-      this._reject = reject;
-    });
+    this.renew();
   }
 
   get promise() {
@@ -17,6 +14,14 @@ module.exports = class AsyncPromise {
 
   get reject() {
     return this._reject;
+  }
+
+  renew() {
+    this._promise = new Promise((resolve, reject) => {
+      this._resolve = resolve;
+      this._reject = reject;
+    });
+    return this;
   }
 
 }
